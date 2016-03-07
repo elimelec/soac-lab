@@ -1,7 +1,6 @@
 .data
 
 .text
-	#read number
 	li $v0, 5
 	syscall
 	
@@ -15,13 +14,14 @@
 end_prog:
 	done
 	
-	
+
+# is_num_prime	
 # $v0 <- num
 # $v0 -> 1 if prime	else 0
+# uses $t0, $t1, $t2
 is_num_prime:
 	move $t0, $v0
 	
-	#check for prime
 	li $t1, 2
 is_num_prime__loop:
 	beq $t0, $t1, is_num_prime__prime
@@ -35,10 +35,14 @@ is_num_prime__loop:
 	
 is_num_prime__prime:
 	li $v0, 1
-	jr $ra
+	b is_num_prime__ret
 
 is_num_prime__not_prime:
 	li $v0, 0
+	b is_num_prime__ret
+
+is_num_prime__ret:
 	jr $ra
+
 	
 	
