@@ -17,12 +17,12 @@ main:
 	mflo $a0 # Salveaza rezultatul în a0
 	li $v0, 1 # Pune codul operatiei în v0
 	syscall # Afiseaza valoarea factorialului
+	
 	lw $ra, 20($sp) # Reface adresa de revenire
-
 	lw $fp, 16($sp) # Reface pointer-ul de cadru
 	addu $sp, $sp, 32 # Reface cadrul de stiva
+	
 	done # Încheiere program
-
 	
 .data
 
