@@ -89,13 +89,7 @@ FinishLaK: 	;*** write result to stdout
 		
 ; IN F12 SUNT ARANJAMENTELEEEEE
 		
-
-		
-		
-		
-		
-		
-		
+	
 		
 		add r1, r8, r0
 		movi2fp 	f10,r1		;R1 -> D0	D0..Count register
@@ -125,19 +119,10 @@ FinishLaK2: 	;*** write result to stdout
 		divd f14, f12, f6
 		sd		PrintfValue,f14
 		addi		r14,r0,PrintfPar
-		trap		5
+		trap		5	
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		
 		
