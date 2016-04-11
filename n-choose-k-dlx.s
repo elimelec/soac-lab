@@ -5,6 +5,7 @@ PrintfFormat:	.asciiz 	"Aranjamente = %g\n\n"
 PrintfFormatComb:	.asciiz 	"Combinari = %g\n\n"
 PrintfFormatEnFactorial:	.asciiz 	"N factorial = %g\n\n"
 PrintfFormatKaFactorial:	.asciiz 	"K factorial = %g\n\n"
+PrintfFormatNKFactorial:	.asciiz 	"N - K factorial = %g\n\n"
 		.align		2
 PrintfPar:	.word		PrintfFormat
 PrintfValue:	.space		8
@@ -14,6 +15,8 @@ PrintfParEnFactorial:	.word		PrintfFormatEnFactorial
 PrintfValueEnFactorial:	.space		8
 PrintfParKaFactorial:	.word		PrintfFormatKaFactorial
 PrintfValueKaFactorial:	.space		8
+PrintfParNKFactorial:	.word		PrintfFormatNKFactorial
+PrintfValueNKFactorial:	.space		8
 
 
 		.text
@@ -84,8 +87,8 @@ LoopPeK:		led		f20,f22		;D0<=1 ?
 		j		LoopPeK
 
 FinishLaK: 	;*** write result to stdout
-		sd		PrintfValue,f8
-		addi		r14,r0,PrintfPar
+		sd		PrintfValueNKFactorial,f8
+		addi		r14,r0,PrintfParNKFactorial
 		trap		5
 
 		
