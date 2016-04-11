@@ -2,9 +2,15 @@
 Prompt: 	.asciiz 	"An integer n value >1 : "
 Prompt2: 	.asciiz 	"An integer k value >1 : "
 PrintfFormat:	.asciiz 	"Aranjamente = %g\n\n"
+PrintfFormatComb:	.asciiz 	"Combinari = %g\n\n"
+PrintfFormatEnFactorial:	.asciiz 	"N factorial = %g\n\n"
 		.align		2
 PrintfPar:	.word		PrintfFormat
 PrintfValue:	.space		8
+PrintfParComb:	.word		PrintfFormatComb
+PrintfValueComb:	.space		8
+PrintfParEnFactorial:	.word		PrintfFormatEnFactorial
+PrintfValueEnFactorial:	.space		8
 
 
 		.text
@@ -40,8 +46,8 @@ LoopPeN:		led		f20,f22		;D0<=1 ?
 
 FinishLaN: 	;*** write result to stdout
 		
-		sd		PrintfValue,f2
-		addi		r14,r0,PrintfPar
+		sd		PrintfValueEnFactorial,f2
+		addi		r14,r0,PrintfParEnFactorial
 		trap		5
 
 
@@ -117,8 +123,8 @@ FinishLaK2: 	;*** write result to stdout
 		
 		
 		divd f14, f12, f6
-		sd		PrintfValue,f14
-		addi		r14,r0,PrintfPar
+		sd		PrintfValueComb,f14
+		addi		r14,r0,PrintfParComb
 		trap		5	
 		
 		
